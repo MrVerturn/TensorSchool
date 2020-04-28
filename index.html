@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/script.js"></script>
+	<meta charset="UTF-8">
+	<title>TensorSchool</title>
+</head>
+<body>
+	<header>
+		<a href="/" class="header_title">Онлайн-школа Тензор</a>
+		<a href="#1" class="header_link"></a>
+		<a href="#2" class="header_link"></a>
+		<a href="#3" class="header_link"></a>
+	</header>
+	<nav class="menu_left">
+		<ul>
+			<li class="menu-left_item"><a href="#4" class="menu-left_link">Мои курсы</a></li>
+			<li class="menu-left_item menu-left_item_selected"><a href="#5" class="menu-left_link">Будущий инженер-программист</a></li>
+			<li class="menu-left_item"><a href="#6" class="menu-left_link">Python-разработчик</a></li>
+		</ul>
+	</nav>
+	<article>
+		<div class="cards">
+			<template id="card" data-card_start="0">
+				<div class="card">
+					<img src="" alt="" class="card_img">
+					<p class="card_title"></p>
+					<p class="card_data"></p>
+					<p class="card_desk"></p>
+					<a href="" class="card_link">Перейти</a>
+				</div>
+			</template>
+			<script>
+				get_card(8);
+			</script>
+		</div>
+		<a onclick="get_card(8)" class="arcticle_more">Показать ещё</a>		
+	</article>
+	<footer>
+		<p class="footer_text">(c) 2020, Компания "Тензор"</p>
+		<a href="#7" class="footer_text">Правила пользования</a>
+	</footer>
+</body>
+</html>
