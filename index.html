@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/script.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<p>Сгенерированный массив</p>
+	<p id="mas"></p>
+	<p>Обратный массив</p>
+	<p id="reversmas"></p>
+	<p>Вычтенный массив</p>
+	<p id="diffmas"></p>
+	<p>Среднее последнего массива</p>
+	<p id="avg"></p>
+
+	<script>
+		let mas = [];
+
+		initRandMas(10,mas);
+		console.log(mas);
+
+		let mas2 = [...mas];
+		mas2 = getReverseMas(mas2);
+		console.log(mas2);
+
+		let mas3 = getDiffMas(mas, mas2);
+		console.log(mas3);
+
+		let AVG = getMasAVG(mas3);
+		console.log(AVG);
+
+
+		document.getElementById("mas").innerHTML = mas;
+		document.getElementById("reversmas").innerHTML = mas2;
+		document.getElementById("diffmas").innerHTML = mas3;
+		document.getElementById("avg").innerHTML = AVG;
+	</script>
+</body>
+</html>
