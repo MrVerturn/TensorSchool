@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Tensor School</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/script.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<header>
+		<img height="30px" src="img/logo.png" alt="Это страница компании Tensor">
+		<span title="Tensor School">Tensor School</span>
+		<p title="Это страница школы Тензор в городе Уфа. Тут вы можете познакомиться с нашими учениками и посмотреть темы занятий.">Это страница школы Тензор в городе Уфа. Тут вы можете познакомиться с нашими учениками и посмотреть темы занятий.</p>
+	</header>	
+	<main>
+		<script>
+			const studentArr = [
+			   {
+			       fullName: 'Маша Иванова',
+			       university: 'УГАТУ',
+			       course: 2,
+			       birthDate: new Date(2000, 4, 11),
+			       photoUrl: 'img/ava1.jpg'
+			   },
+			   {
+			       fullName: 'Миша Петров',
+			       university: 'СурГУ',
+			       course: 3,
+			       birthDate: new Date(1999, 0, 1),
+			       photoUrl: 'img/ava0.jpg'
+			   },
+			   {
+			       fullName: 'Марат Сидоров',
+			       university: 'БГУ',
+			       course: 4,
+			       birthDate: new Date(1998, 0, 1),
+			       photoUrl: 'img/ava2.jpg'
+			   },
+			];
+
+			let cardCont = document.getElementsByTagName("main")[0];
+
+			studentArr.forEach( function(item) { 
+				let student = new Student(item);
+				student.appendToDOM(student.renderCard, cardCont);
+			} );
+		</script>
+		
+	</main>
+</body>
+</html>

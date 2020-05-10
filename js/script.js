@@ -1,0 +1,135 @@
+class Student{
+
+
+	constructor(item){	
+		this.name = item.fullName;
+		this.university = item.university;
+        this.course = item.course;
+        this.birthDate = item.birthDate;
+        this.photoUrl = item.photoUrl;
+	}
+
+	get birthDateStr() {
+
+		let str = this.birthDate.getDay();
+
+		switch(this.birthDate.getMonth()){
+			case 0: str += " января"; break;
+			case 1: str += " февраля"; break;
+			case 2: str += " марта"; break;
+			case 3: str += " апреля"; break;
+			case 4: str += " мая"; break;
+			case 5: str += " июня"; break;
+			case 6: str += " июля"; break;
+			case 7: str += " августа"; break;
+			case 8: str += " сентября"; break;
+			case 9: str += " октября"; break;
+			case 10: str += " ноября"; break;
+			case 11: str += " декабря"; break;
+			default: str += " NaN"; break;
+		}
+
+		return  str + ", " + this.age;
+	}
+
+	get age() {
+		let now = Date.now();
+		let ageTS = now - this.birthDate.getTime();
+		let age = (new Date(ageTS).getFullYear()) - 1970;
+		switch (age % 10){
+			case 1:
+			case 2:
+			case 3:
+			case 4: age += " год"; break;
+			default: age += " лет"; break;
+		}
+		return age;
+	}
+
+	get renderInfo(){
+		let absoluteCont = document.createElement("div");
+		absoluteCont.className = "absolute_cont";
+
+		let mainDiv = document.createElement("div");
+		mainDiv.className = "info_cont";		
+
+		let close = document.createElement("div");
+		close.className = "close_btn";
+
+		let img = document.createElement("div");
+		img.className = "avatar";
+		img.style.backgroundImage =  "url('" + this.photoUrl + "')";
+
+		let nameP = document.createElement("p");
+		nameP.appendChild(document.createTextNode(this.name));
+		nameP.className = "info_cont-title";
+
+
+		let titleBD = document.createElement("span");
+		titleBD.appendChild(document.createTextNode("День рождения"));
+		titleBD.className = "info_cont-cart_title";
+
+
+		let birthDate = document.createElement("p");
+		birthDate.appendChild(document.createTextNode(this.birthDateStr));
+
+		let titleStudent = document.createElement("span");
+		titleStudent.appendChild(document.createTextNode("Учится"));
+		titleStudent.className = "info_cont-cart_title";
+
+		let studentP = document.createElement("p");
+		studentP.appendChild(document.createTextNode(this.university + ", " + this.course + " курс"));
+
+		mainDiv.appendChild(nameP);
+		mainDiv.appendChild(titleBD);
+		mainDiv.appendChild(birthDate);
+
+		mainDiv.appendChild(titleStudent);
+		mainDiv.appendChild(studentP);
+
+		mainDiv.appendChild(close);
+		mainDiv.appendChild(img);
+
+		absoluteCont.appendChild(mainDiv);
+
+		return absoluteCont;
+	}
+
+	get renderCard(){
+		let mainDiv = document.createElement("div");
+		mainDiv.className = "card";
+
+		let img = document.createElement("img");
+		img.src = this.photoUrl;
+
+		let nameP = document.createElement("p");
+		nameP.appendChild(document.createTextNode(this.name));
+		nameP.className = "name";
+
+		let studentP = document.createElement("p");
+		studentP.appendChild(document.createTextNode(this.university + ", " + this.course + " курс"));
+		studentP.className = "subname";
+
+		mainDiv.appendChild(img);
+		mainDiv.appendChild(nameP);
+		mainDiv.appendChild(studentP);
+		return mainDiv;
+	}
+
+	appendToDOM(html, DOMElement){
+		let element = DOMElement.appendChild(html);	
+		let that = this;
+		element.addEventListener("click", (event) => { that.openCard(that.renderInfo); }  );
+	}
+
+	openCard(html){
+		let body = document.getElementsByTagName("body")[0];
+		body.style.overflow = "hidden";
+		if( window.innerHeight < body.offsetHeight  ){
+			body.style.marginRight = "17px";
+		}
+		body.appendChild(html);
+		html.style.top = pageYOffset  + "px";
+		(html.getElementsByClassName("close_btn")[0]).addEventListener("click", (event) => { html.remove(); body.style.overflow = "auto"; body.style.marginRight = "0px";}  );
+	}
+}
