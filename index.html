@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Tensor School</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/script.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<header>
+		<img height="30px" src="img/logo.png" alt="Это страница компании Tensor">
+		<span title="Tensor School">Tensor School</span>
+		<p title="Это страница школы Тензор в городе Уфа. Тут вы можете познакомиться с нашими учениками и посмотреть темы занятий.">Это страница школы Тензор в городе Уфа. Тут вы можете познакомиться с нашими учениками и посмотреть темы занятий.</p>
+	</header>	
+	<main> 
+		<p class="block-title">Лучший студент курса</p>
+		<div id="favorite"></div>
+		<p class="block-title">Наши студенты</p>
+		<div id="students"></div>
+		<p class="block-title">Наши преподаватели</p>
+		<div id="teachers"></div>
+
+		<script>
+			const studentArr = [
+			   {
+			       fullName: 'Маша Иванова',
+			       university: 'УГАТУ',
+			       course: 2,
+			       birthDate: new Date(2000, 8, 4),
+			       photoUrl: 'img/ava1.jpg'
+			   },
+			   {
+			       fullName: 'Миша Петров',
+			       university: 'СурГУ',
+			       course: 3,
+			       birthDate: new Date(1999, 0, 1),
+			       photoUrl: 'img/ava0.jpg'
+			   },
+			   {
+			       fullName: 'Марат Сидоров',
+			       university: 'БГУ',
+			       course: 4,
+			       birthDate: new Date(1998, 1, 1),
+			       photoUrl: 'img/ava2.jpg'
+			   },
+			   {
+			       fullName: 'Иван Иванов',
+			       university: 'БГУ',
+			       workFrom: new Date(1998, 1, 1),
+			       birthDate: new Date(1958, 1, 1),
+			       photoUrl: 'img/ava4.jpg'
+			   },
+			   {
+			       fullName: 'Илья Скворцоу',
+			       university: 'СПБГУ',
+			       workFrom: new Date(1950, 1, 1),
+			       birthDate: new Date(1897, 1, 1),
+			       photoUrl: 'img/ava3.jpg'
+			   },
+			   {
+			       fullName: 'Verturn Smith',
+			       university: 'ВКИ',
+			       course: 4,
+			       birthDate: new Date(2000, 9, 12),
+			       photoUrl: 'img/ava5.jpg'
+			   }
+			];
+
+			let studentCardCont = document.getElementById("students");
+			let teacherCardCont = document.getElementById("teachers");
+			let favoriteCardCont = document.getElementById("favorite");
+
+			let school = new School("Tenzor");			
+
+			studentArr.forEach( function(item) { 
+				let student = school.addHuman(item);
+			} );
+
+			school.delete('Илья Скворцоу');
+
+			school.renderByType(studentCardCont, Student);
+			school.renderByType(teacherCardCont, Teacher);
+
+
+			let theBestStudent = school.search('Verturn Smith');
+			theBestStudent.appendToDOM(theBestStudent.renderCard(), favoriteCardCont);
+		</script>
+		
+	</main>
+</body>
+</html>
