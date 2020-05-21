@@ -11,9 +11,27 @@ let school = new School();
 // Vasia и пр. тут скорее для примера
 // если методы называются по другому, поменяйте
 // по желанию можно добавить больше
-school.addHuman( factory.createStudent({ name: 'Vasia' }) );
-school.addHuman( factory.createStudent({ name: 'Petia' }) );
-school.addHuman( factory.createTeacher({ name: 'Misha' }) );
+school.addHuman( factory.createStudent({ 
+   name: 'Маша Иванова',
+   university: 'УГАТУ',
+   course: 2,
+   birthDate: new Date(2000, 8, 4),
+   photoUrl: 'img/ava1.jpg'
+}) );
+school.addHuman( factory.createStudent({ 
+   name: 'Миша Петров',
+   university: 'СурГУ',
+   course: 3,
+   birthDate: new Date(1999, 0, 1),
+   photoUrl: 'img/ava0.jpg'
+}) );
+school.addHuman( factory.createTeacher({ 
+   name: 'Илья Скворцоу',
+   university: 'СПБГУ',
+   workFrom: new Date(1950, 1, 1),
+   birthDate: new Date(1897, 1, 1),
+   photoUrl: 'img/ava2.jpg'
+}) );
 
 // отрисуем всех студентов в dom 
 // если методы называются по другому, поменяйте
