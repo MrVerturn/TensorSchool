@@ -1,0 +1,84 @@
+{
+  "person": [
+    {
+      "id": 4,
+      "title": "Вася Васильев",
+      "photo": "img/ava4.jpg",
+      "study": "Угату",
+      "bday": "2000-05-01T00:00:00.000Z",
+      "phone": "+7 (963) 123-45-67",
+      "active": "2020-04-11T18:01:47.340Z"
+    },
+    {
+      "id": 5,
+      "title": "Вика Цукерберг",
+      "photo": "img/ava5.jpg",
+      "study": "БГПУ",
+      "bday": "2001-02-08T00:00:00.000Z",
+      "phone": "+7 (963) 123-45-67",
+      "active": "2020-03-05T15:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "title": "Дедя Федор Илынбаев",
+      "photo": "img/ava2.jpg",
+      "study": "",
+      "bday": "1974-07-24T00:00:00.000Z",
+      "phone": "+7 (963) 123-45-67",
+      "active": "2020-04-03T15:00:00.000Z"
+    },
+    {
+      "title": "Иван Иванов",
+      "study": "ВКИ",
+      "bdate": "2016-02-04",
+      "phone": "8-800-555-35-35",
+      "photo": "/img/ava5.jpg",
+      "active": 1590921958674,
+      "id": 7
+    },
+    {
+      "title": "акеп",
+      "study": "вап",
+      "bdate": "2020-05-07",
+      "phone": "куе",
+      "photo": "/img/ava0.jpg",
+      "active": 1590921973519,
+      "id": 8
+    },
+    {
+      "title": "546",
+      "study": "456",
+      "bdate": "2020-05-15",
+      "phone": "456",
+      "photo": "/img/ava4.jpg",
+      "active": 1590922104497,
+      "id": 9
+    },
+    {
+      "title": "ert",
+      "study": "567",
+      "bdate": "2020-05-02",
+      "phone": "567",
+      "photo": "/img/ava0.jpg",
+      "active": 1590922154594,
+      "id": 10
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
